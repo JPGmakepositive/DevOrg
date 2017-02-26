@@ -1,0 +1,17 @@
+<apex:page standardController="Contact" recordSetVar="contacts">
+    <apex:form >
+
+        
+        
+           
+
+            <!-- Contacts List -->
+            <apex:repeat > value="{! contacts }" var="ct">
+               
+
+        	</apex:repeat>
+            
+        
+
+    </apex:form>
+</apex:page>

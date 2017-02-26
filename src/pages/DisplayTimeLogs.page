@@ -1,0 +1,20 @@
+<apex:page standardController="Flexitime__c">
+    
+    <apex:pageBlock title="Time Logs">
+       
+            <apex:pageBlockSection >
+                
+                 
+                     <apex:pageBlockTable value="{!Flexitime__c.time_logs__r}" var="tl">
+                         <apex:column title="contact" value="{!tl.Contact__c}"/>
+                         <apex:column title="contact" value="{!tl.Hours__c}"/>
+                     
+                     </apex:pageBlockTable>
+               
+                 
+            </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+        
+    
+</apex:page>

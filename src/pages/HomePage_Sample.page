@@ -1,0 +1,572 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> 
+        <head>
+  		<title>HomePage Sample</title>
+  		<apex:stylesheet value="{!URLFOR($Resource.SLDS0122, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+		</head> 
+        
+        <body>    
+    		<div class="slds"> 
+                <div class="slds-tabs--default">
+  <ul class="slds-tabs--default__nav" role="tablist">
+    <li class="slds-tabs--default__item slds-text-heading--label slds-active" title="Item One" role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Item One</a></li>
+    <li class="slds-tabs--default__item slds-text-heading--label" title="Item Two" role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Item Two</a></li>
+    <li class="slds-tabs--default__item slds-text-heading--label" title="Item Three"
+    role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="tab-default-3__item">Item Three</a></li>
+    <li class="slds-tabs--default__item slds-text-heading--label" title="Item Four"
+    role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-4" id="tab-default-4__item">Item Four</a></li>
+    <li class="slds-tabs--default__item slds-text-heading--label" title="Item Five"
+    role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-5" id="tab-default-5__item">Item Five</a></li>
+    <li class="slds-tabs--default__item slds-text-heading--label" title="Item Six"
+    role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-6" id="tab-default-6__item">Item Six</a></li>
+    <li class="slds-tabs--default__item slds-text-heading--label" title="Item Seven"
+    role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-7" id="tab-default-7__item">Item Seven</a></li>
+    <li class="slds-dropdown-trigger slds-tabs--default__item slds-tabs__item--overflow slds-text-heading--label"
+    title="More" role="presentation"><a class="slds-tabs--default__link" href="#" aria-haspopup="true">More <span class="slds-assistive-text">search results</span><svg aria-hidden="true" class="slds-button__icon slds-button__icon--x-small"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use></svg></a>
+      <div
+      class="slds-dropdown slds-dropdown--medium slds-dropdown--right slds-dropdown--overflow slds-dropdown--menu">
+        <ul class="slds-dropdown__list" role="menu">
+          <li id="menu-80-0" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-account slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                </svg>Accounts</p>
+            </a>
+          </li>
+          <li id="menu-81-1" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-approval slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#approval"></use>
+                </svg>Approvals</p>
+            </a>
+          </li>
+          <li id="menu-82-2" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-lead slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#lead"></use>
+                </svg>Lead</p>
+            </a>
+          </li>
+          <li id="menu-83-3" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-opportunity slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#opportunity"></use>
+                </svg>Opportunities</p>
+            </a>
+          </li>
+          <li id="menu-84-4" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-product slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#product"></use>
+                </svg>Products</p>
+            </a>
+          </li>
+          <li id="menu-85-5" class="slds-dropdown__item slds-has-divider--top-space">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-account slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                </svg>Accounts</p>
+            </a>
+          </li>
+          <li id="menu-86-6" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-approval slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#approval"></use>
+                </svg>Approvals</p>
+            </a>
+          </li>
+          <li id="menu-87-7" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-lead slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#lead"></use>
+                </svg>Lead</p>
+            </a>
+          </li>
+          <li id="menu-88-8" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-opportunity slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#opportunity"></use>
+                </svg>Opportunities</p>
+            </a>
+          </li>
+          <li id="menu-89-9" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-product slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#product"></use>
+                </svg>Products</p>
+            </a>
+          </li>
+          <li id="menu-90-10" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-account slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                </svg>Accounts</p>
+            </a>
+          </li>
+          <li id="menu-91-11" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-approval slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#approval"></use>
+                </svg>Approvals</p>
+            </a>
+          </li>
+          <li id="menu-92-12" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-lead slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#lead"></use>
+                </svg>Lead</p>
+            </a>
+          </li>
+          <li id="menu-93-13" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-opportunity slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#opportunity"></use>
+                </svg>Opportunities</p>
+            </a>
+          </li>
+          <li id="menu-94-14" class="slds-dropdown__item">
+            <a href="javascript:void(0)" role="menuitem">
+              <p class="slds-truncate">
+                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-icon-standard-product slds-m-right--small">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#product"></use>
+                </svg>Products</p>
+            </a>
+          </li>
+        </ul>
+</div>
+</li>
+</ul>
+<div id="tab-default-1" class="slds-tabs--default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
+  <h2>Item One Content</h2>
+</div>
+<div id="tab-default-2" class="slds-tabs--default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">
+  <h2>Item Two Content</h2>
+</div>
+<div id="tab-default-3" class="slds-tabs--default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-3__item">
+  <h2>Item Three Content</h2>
+</div>
+<div id="tab-default-4" class="slds-tabs--default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-4__item">
+  <h2>Item Four Content</h2>
+</div>
+<div id="tab-default-5" class="slds-tabs--default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-5__item">
+  <h2>Item Five Content</h2>
+</div>
+<div id="tab-default-6" class="slds-tabs--default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-6__item">
+  <h2>Item Six Content</h2>
+</div>
+<div id="tab-default-7" class="slds-tabs--default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-7__item">
+  <h2>Item Seven Content</h2>
+</div>
+                </div>
+                <div class="myapp">
+                    <div class="slds-grid slds-m-top--large">
+                        <div class="slds-col  slds-size--2-of-3 ">
+                              <div class="slds-card">
+
+    <header class="slds-card__header slds-grid">
+      <div class="slds-col slds-media slds-media--center">
+        <div class="slds-media__figure">
+          <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
+            <use xlink:href="{!URLFOR($Resource.SLDS0122, 'assets/icons/standard-sprite/svg/symbols.svg#feed')}"></use>
+          </svg>
+        </div>
+        <div class="slds-media__body">
+          <h3 class="slds-text-heading--small">Feed</h3>
+        </div>
+      </div>
+      <div class="slds-col slds-no-flex">
+       
+      </div>
+    </header>
+                            
+  <div class="slds-feed">
+  <ul class="slds-feed__list">
+    <li class="slds-feed__item">
+      <div class="slds-media slds-comment slds-hint-parent">
+        <div class="slds-media__figure">
+          <div class="slds-avatar slds-avatar--circle slds-avatar--medium">
+            <a href="javascript:void(0)" title="Jason Rodgers">
+              <img src="{!URLFOR($Resource.SLDS0122,'/assets/images/avatar1.jpg')}" alt="Jason Rodgers" />
+            </a>
+          </div>
+        </div>
+        <div class="slds-media__body">
+          <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+            <p class="slds-truncate"><a href="javascript:void(0)" title="Design Systems">Design Systems</a> - <a href="javascript:void(0)" title="Jason Rodgers">Jason Rogers</a></p>
+            <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
+              <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#down')}"></use>
+              </svg>
+              <span class="slds-assistive-text">Show More</span>
+            </button>
+          </div>
+          <p class="slds-text-body--small"><a href="javascript:void(0)" title="Click for single-item view of this post">18hr Ago</a></p>
+          <div class="slds-comment__content slds-text-longform">
+            <p>Here&#x27;s the latest demo presentation <a href="javascript:void(0)" title="Jenna Davis">@Jenna Davis</a>, let me know if there are any changes. I&#x27;ve updated slides 3-8 and slides 16-18 slides with new product shots.</p>
+          </div>
+          <div class="slds-tags slds-text-body--small slds-p-bottom--x-small">
+            <span>Topics:</span>
+            <ul class="slds-tags__list">
+              <li class="slds-tags__item"><a href="javascript:void(0)" title="Powerpoint">Powerpoint</a></li>
+              <li class="slds-tags__item"><a href="javascript:void(0)" title="Sales Presentation">Sales Presentation</a></li>
+              <li class="slds-tags__item"><a href="javascript:void(0)" title="Todo">Todo</a></li>
+              <li class="slds-tags__item">and <a href="javascript:void(0)" title="Show the remaining topics">3 more</a></li>
+            </ul>
+          </div>
+          <ul class="slds-list--horizontal slds-has-dividers slds-text-body--small">
+            <li class="slds-list__item">
+              <a href="javascript:void(0)" title="Like this item">
+                <button class="slds-button slds-button--icon-border slds-button--icon-small slds-m-right--small slds-not-selected">
+                  <svg aria-hidden="true" class="slds-button__icon">
+                    <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#like')}"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Like</span>
+                </button>
+                <span>21 Likes</span>
+              </a>
+            </li>
+            <li class="slds-list__item">2 tasks</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="slds-comment__replies">
+        <li class="slds-comment__overflow">
+          <button class="slds-button slds-button--neutral">3 more comments</button>
+        </li>
+        <li>
+          <div class="slds-media slds-comment slds-hint-parent">
+            <div class="slds-media__figure">
+              <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+                <a href="javascript:void(0)" title="Jenna Davis">
+                  <img src="{!URLFOR($Resource.SLDS0122,'/assets/images/avatar2.jpg')}" alt="Jenna Davis" />
+                </a>
+              </div>
+            </div>
+            <div class="slds-media__body">
+              <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                <p class="slds-truncate"><a href="javascript:void(0)" title="Jenna Davis">Jenna Davis</a> -
+                  <span class="slds-text-body--small">16hr Ago</span>
+                </p>
+                <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
+                  <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                    <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#down')}"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Show More</span>
+                </button>
+              </div>
+              <div class="slds-comment__content slds-text-longform">
+                <p><a href="javascript:void(0)" title="Jason Rodgers">@Jason Rodgers</a> I left you some feedback!</p>
+              </div>
+              <ul class="slds-list--horizontal slds-has-dividers slds-text-body--small">
+                <li class="slds-list__item"><a href="javascript:void(0)" title="Like this item">Like</a></li>
+                <li class="slds-list__item">13 Likes</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="slds-media slds-comment slds-hint-parent">
+            <div class="slds-media__figure">
+              <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+                <a href="javascript:void(0)" title="Jenna Davis">
+                  <img src="{!URLFOR($Resource.SLDS0122,'/assets/images/avatar2.jpg')}" alt="Jenna Davis" />
+                </a>
+              </div>
+            </div>
+            <div class="slds-media__body">
+              <div class="slds-publisher slds-publisher--comment">
+                <textarea class="slds-publisher__input slds-input--bare slds-text-longform" placeholder="Write a comment…"></textarea>
+                <div class="slds-attachments"></div>
+                <div class="slds-publisher__actions slds-grid slds-grid--align-spread">
+                  <ul class="slds-grid">
+                    <li>
+                      <button class="slds-button slds-button--icon-container">
+                        <svg aria-hidden="true" class="slds-button__icon">
+                          <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#adduser')}"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Add User</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button class="slds-button slds-button--icon-container">
+                        <svg aria-hidden="true" class="slds-button__icon">
+                          <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#attach')}"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Attach a file</span>
+                      </button>
+                    </li>
+                  </ul>
+                  <button class="slds-button slds-button--brand">Comment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li class="slds-feed__item">
+      <div class="slds-media slds-comment slds-hint-parent">
+        <div class="slds-media__figure">
+          <div class="slds-avatar slds-avatar--circle slds-avatar--medium">
+            <a href="javascript:void(0)" title="Jason Rodgers">
+              <img src="{!URLFOR($Resource.SLDS0122,'/assets/images/avatar1.jpg')}" alt="Jason Rodgers" />
+            </a>
+          </div>
+        </div>
+        <div class="slds-media__body">
+          <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+            <p class="slds-truncate"><a href="javascript:void(0)" title="Design Systems">Design Systems</a> - <a href="javascript:void(0)" title="Jason Rodgers">Jason Rogers</a></p>
+            <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
+              <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#down')}"></use>
+              </svg>
+              <span class="slds-assistive-text">Show More</span>
+            </button>
+          </div>
+          <p class="slds-text-body--small"><a href="javascript:void(0)" title="Click for single-item view of this post">18hr Ago</a></p>
+          <div class="slds-comment__content slds-text-longform">
+            <p><a href="javascript:void(0)" title="Garrett Lee">@Garrett Lee</a>, can you review and let me know what&#x27;s missing? FYI <a href="javascript:void(0)" title="All Sales Group">@All Sales Group</a></p>
+          </div>
+          <div class="slds-attachments">
+            <figure class="slds-attachments__item">
+              <a href="javascript:void(0)" title="Marketing Plan - Rollout Q1 2016">
+                <img src="{!URLFOR($Resource.SLDS0122,'/assets/images/feed/feed-image-example.png')}" alt="Marketing Plan - Rollout Q1 2016" />
+              </a>
+            </figure>
+          </div>
+          <ul class="slds-list--horizontal slds-has-dividers slds-text-body--small">
+            <li class="slds-list__item">
+              <a href="javascript:void(0)" title="Like this item">
+                <button class="slds-button slds-button--icon-border slds-button--icon-small slds-m-right--small slds-not-selected">
+                  <svg aria-hidden="true" class="slds-button__icon">
+                    <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#like')}"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Like</span>
+                </button>
+                <span>21 Likes</span>
+              </a>
+            </li>
+            <li class="slds-list__item">2 tasks</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="slds-comment__replies">
+        <li>
+          <div class="slds-media slds-comment slds-hint-parent">
+            <div class="slds-media__figure">
+              <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+                <a href="javascript:void(0)" title="Jenna Davis">
+                  <img src="{!URLFOR($Resource.SLDS0122,'/assets/images/avatar2.jpg')}" alt="Jenna Davis" />
+                </a>
+              </div>
+            </div>
+            <div class="slds-media__body">
+              <div class="slds-publisher slds-publisher--comment">
+                <textarea class="slds-publisher__input slds-input--bare slds-text-longform" placeholder="Write a comment…"></textarea>
+                <div class="slds-attachments"></div>
+                <div class="slds-publisher__actions slds-grid slds-grid--align-spread">
+                  <ul class="slds-grid">
+                    <li>
+                      <button class="slds-button slds-button--icon-container">
+                        <svg aria-hidden="true" class="slds-button__icon">
+                          <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#adduser')}"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Add User</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button class="slds-button slds-button--icon-container">
+                        <svg aria-hidden="true" class="slds-button__icon">
+                          <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#attach')}"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Attach a file</span>
+                      </button>
+                    </li>
+                  </ul>
+                  <button class="slds-button slds-button--brand">Comment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li class="slds-feed__item">
+      <div class="slds-media slds-comment slds-hint-parent">
+        <div class="slds-media__figure">
+          <div class="slds-avatar slds-avatar--circle slds-avatar--medium">
+            <a href="javascript:void(0)" title="Jason Rodgers">
+              <img src="{!URLFOR($Resource.SLDS0122,'/assets/images/avatar1.jpg')}" alt="Jason Rodgers" />
+            </a>
+          </div>
+        </div>
+        <div class="slds-media__body">
+          <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+            <p class="slds-truncate"><a href="javascript:void(0)" title="Design Systems">Design Systems</a> - <a href="javascript:void(0)" title="Jason Rodgers">Jason Rogers</a></p>
+            <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small slds-shrink-none">
+              <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+                <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#down')}"></use>
+              </svg>
+              <span class="slds-assistive-text">Show More</span>
+            </button>
+          </div>
+          <p class="slds-text-body--small"><a href="javascript:void(0)" title="Click for single-item view of this post">18hr Ago</a></p>
+          <div class="slds-comment__content slds-text-longform">
+            <p>Here&#x27;s the revised demo presentation <a href="javascript:void(0)" title="Jenna Davis">@Jenna Davis</a></p>
+          </div>
+          <div class="slds-attachments">
+            <div class="slds-attachments__item slds-box slds-box--x-small slds-theme--shade">
+              <div class="slds-grid slds-grid--align-spread">
+                <div class="slds-media">
+                  <div class="slds-media__figure">
+                    <span class="slds-icon__container">
+                      <svg aria-hidden="true" class="slds-icon slds-icon--small">
+                        <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/doctype-sprite/svg/symbols.svg#ppt')}"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Powerpoint</span>
+                    </span>
+                  </div>
+                  <div class="slds-media__body"><a href="javascript:void(0)" title="filename.ppt">filename.ppt</a></div>
+                </div>
+                <button class="slds-button slds-button--icon-bare">
+                  <svg aria-hidden="true" class="slds-button__icon">
+                    <use xlink:href="{!URLFOR($Resource.SLDS0122, '/assets/icons/utility-sprite/svg/symbols.svg#close')}"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Remove this attachment</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <ul class="slds-list--horizontal slds-has-dividers slds-text-body--small">
+            <li class="slds-list__item">
+              <a href="javascript:void(0)" title="Like this item">
+                <button class="slds-button slds-button--icon-border slds-button--icon-small slds-m-right--small slds-not-selected">
+                  <svg aria-hidden="true" class="slds-button__icon">
+                    <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#like')}"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Like</span>
+                </button>
+                <span>21 Likes</span>
+              </a>
+            </li>
+            <li class="slds-list__item">2 tasks</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="slds-comment__replies">
+        <li>
+          <div class="slds-media slds-comment slds-hint-parent">
+            <div class="slds-media__figure">
+              <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+                <a href="javascript:void(0)" title="Jenna Davis">
+                  <img src="{!URLFOR($Resource.SLDS0122,'/assets/images/avatar2.jpg')}" alt="Jenna Davis" />
+                </a>
+              </div>
+            </div>
+            <div class="slds-media__body">
+              <div class="slds-publisher slds-publisher--comment">
+                <textarea class="slds-publisher__input slds-input--bare slds-text-longform" placeholder="Write a comment…"></textarea>
+                <div class="slds-attachments"></div>
+                <div class="slds-publisher__actions slds-grid slds-grid--align-spread">
+                  <ul class="slds-grid">
+                    <li>
+                      <button class="slds-button slds-button--icon-container">
+                        <svg aria-hidden="true" class="slds-button__icon">
+                          <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#adduser')}"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Add User</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button class="slds-button slds-button--icon-container">
+                        <svg aria-hidden="true" class="slds-button__icon">
+                          <use xlink:href="{!URLFOR($Resource.SLDS0122,'/assets/icons/utility-sprite/svg/symbols.svg#attach')}"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Attach a file</span>
+                      </button>
+                    </li>
+                  </ul>
+                  <button class="slds-button slds-button--brand">Comment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</div>
+                            </div>
+                    <div class="slds-col slds-p-left--large slds-size--4-of-12">
+                           <div class="slds-card">
+
+    <header class="slds-card__header">
+      <div class="slds-media slds-media--center">
+        <div class="slds-media__figure">
+          <svg aria-hidden="true" class="slds-icon slds-icon-standard-lead slds-icon--small">
+            <use xlink:href="{!URLFOR($Resource.SLDS0122, 'assets/icons/standard-sprite/svg/symbols.svg#lead')}"></use>
+          </svg>
+        </div>
+        <div class="slds-media__body">
+          <h3 class="slds-text-heading--small">Team</h3>
+        </div>
+      </div>
+    </header>
+
+    <section class="slds-card__body">
+      <!-- LIST WITH ONE ITEM -->
+      <ul>
+        <li class="slds-tile slds-hint-parent">
+
+          <p class="tile__title slds-truncate"><a href="#">Anne Choi</a></p>
+
+          <div class="tile__detail">
+            <dl class="dl--horizontal slds-text-body--small">
+              <dt class="slds-dl--horizontal__label">
+                <p class="slds-truncate">Email:</p>
+              </dt>
+              <dd class="slds-dl--horizontal__detail slds-tile__meta">
+                <p class="slds-truncate">achoi@burlingtion.com</p>
+              </dd>
+            </dl>
+          </div>
+        </li>
+      </ul>
+      <!-- LIST WITH ONE ITEM -->
+    </section>
+
+    <footer class="slds-card__footer">
+      <a href="#">View All</a>
+    </footer>
+
+  </div>  
+                    </div>          
+                        
+                         
+
+ 
+
+
+                    
+                    
+                </div>
+                </div>
+            </div>
+        </body>
+    </html>
+</apex:page>

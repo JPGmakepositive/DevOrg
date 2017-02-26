@@ -1,0 +1,15 @@
+<apex:page controller="GroupingExampleController2">
+    <ul>
+        <apex:repeat value="{!flexitime}" var="ft">
+            <li>{!records[ft]['name']}<ul>
+            <apex:repeat value="{!flexitime[ft]}" var="employee">
+                <li>{!records[employee]['name']}<ul>
+                <apex:repeat value="{!flexitime[ft][employee]}" var="timecard">
+                    <li>{!timecard.hours__c}</li>
+                </apex:repeat>
+                </ul></li>
+            </apex:repeat>
+            </ul></li>
+        </apex:repeat>
+    </ul>
+</apex:page>

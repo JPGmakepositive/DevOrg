@@ -1,0 +1,37 @@
+<apex:page controller="ClosureCodeController">
+   <apex:form >
+      <apex:actionFunction name="rerenderStates" rerender="statesSelectList" >
+          <apex:param name="firstParam" assignTo="{!controllingField}" value="" />
+      </apex:actionFunction>
+
+   <table><tbody>
+      <tr>
+        <th>Point of Origin</th>
+          <td>
+             <apex:selectList id="country" styleclass="std" size="1" 
+                value="{!controllingField}" onChange="rerenderStates(this.value)">
+                    <apex:selectOptions value="{!ControllingField1SelectList}"/>
+             </apex:selectList>
+          </td>
+      </tr>
+             <tr>
+        <th>Category</th>
+          <td>
+             <apex:selectList id="country2" styleclass="std" size="1" 
+                value="{!controllingField}" onChange="rerenderStates(this.value)">
+                    <apex:selectOptions value="{!ControllingField2SelectList}"/>
+             </apex:selectList>
+          </td>
+      </tr>
+      <tr id="state_input">
+        <th>Closure Code</th>
+          <td>
+            <apex:selectList id="statesSelectList" styleclass="std" size="1" 
+                 value="{!closureCode}">
+                   <apex:selectOptions value="{!StatesSelectList}"/>
+            </apex:selectList>
+          </td>
+      </tr>
+   </tbody></table>
+   </apex:form>
+</apex:page>

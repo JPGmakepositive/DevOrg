@@ -1,0 +1,203 @@
+<apex:page showHeader="false" controller="Fitbit" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">    
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+
+<head>
+  <title>Fitbit Data</title>
+ <apex:stylesheet value="{!URLFOR($Resource.SLDS0122, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+    
+</head>    
+  
+
+<apex:remoteObjects >
+  <apex:remoteObjectModel name="FitbitData__c" jsShorthand="fitData" fields="Calories__c,Date__c,Steps__c,Distance__c,CreatedDate"/>
+</apex:remoteObjects>    
+
+
+
+<body>    
+
+  <!-- REQUIRED SLDS WRAPPER -->
+  <div class="slds">    
+
+    <!-- MASTHEAD -->
+    <p class="slds-text-heading--label slds-m-bottom--small"></p>
+    <!-- / MASTHEAD -->    
+
+   
+ <div class="slds-page-header" role="banner">
+
+<!-- / MEDIA OBJECT -->
+<!-- /HEADING AREA -->
+
+
+
+  <!-- LAYOUT GRID -->
+  <div class="slds-grid">
+
+    <!-- GRID COL -->
+    <div class="slds-col">
+
+       <!-- HEADING AREA -->
+<!-- MEDIA OBJECT = FIGURE + BODY -->
+     
+<div class="slds-media">
+
+  <div class="slds-media__figure">
+    <span class="slds-avatar slds-avatar--large">
+      <img src="{!URLFOR($Resource.SLDS0122, 'assets/images/avatar1.jpg')}" alt="portrait" />
+    </span>
+  </div>
+
+  <div class="slds-media__body">
+    <p class="slds-text-heading--label">Accounts</p>
+    <h1 class="slds-text-heading--medium">My Fitbit Data</h1>
+  </div>
+        </div>
+      <!-- /HEADING AREA -->
+
+ 
+
+<div class="slds-modal" aria-hidden="false" role="dialog" id="modal">
+<div class="slds-modal__container">
+<div class="slds-modal__header">
+    <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="closeModal()">
+      <svg aria-hidden="true" class="slds-button__icon slds-button__icon--large">
+        <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#close"></use>
+      </svg>
+      <span class="slds-assistive-text">Close</span>
+    </button>
+    <h2 class="slds-text-heading--medium">Select Date to Sync</h2>
+  </div>
+  <div class="slds-modal__content slds-p-around--medium">
+    <div>
+      
+    </div>
+  </div>
+  <div class="slds-modal__footer">
+    <button class="slds-button slds-button--neutral" onclick="closeModal()">Cancel</button>
+    <button class="slds-button slds-button--neutral slds-button--brand">Save</button>
+  </div>
+</div>
+</div>
+<div class="slds-backdrop" id="backdrop"></div>
+
+<!-- Button To Open Modal -->
+
+      </div>   
+    <!-- GRID COL -->
+    <div class="slds-col slds-no-flex slds-align-middle">
+
+     <button class="slds-button slds-button--brand" id="toggleBtn">Sync Fitbit</button>
+        
+
+    </div>
+    <!-- / GRID COL -->
+
+  </div>
+  <!-- / LAYOUT GRID -->
+
+  <p class="slds-text-body--small slds-m-top--x-small">{!$User.FirstName} {!$User.LastName}</p>
+
+</div>
+<!-- / PAGE HEADER -->
+
+
+<!-- PRIMARY CONTENT WRAPPER -->
+<div class="myapp">
+
+ 
+  <!-- / CREATE NEW ACCOUNT -->
+   
+
+  <!-- ACCOUNT LIST TABLE -->
+  <div id="caseList" class="slds-p-vertical--medium"></div>
+  <!-- / ACCOUNT LIST TABLE -->    
+
+</div>
+<!-- / PRIMARY CONTENT WRAPPER -->
+
+
+
+    <!-- FOOTER -->
+<footer role="contentinfo" class="slds-p-around--large">
+  <!-- LAYOUT GRID -->
+  <div class="slds-grid slds-grid--align-spread">
+    <p class="slds-col">Salesforce Lightning Fitbit</p>
+    <p class="slds-col">&copy; Julian P. Garcia</p>
+  </div>
+  <!-- / LAYOUT GRID -->
+    
+    
+</footer>
+<!-- / FOOTER -->
+   
+
+  </div>
+  <!-- / REQUIRED SLDS WRAPPER -->    
+
+</body>    
+
+<!-- JAVASCRIPT -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script>
+  var Case = new SObjectModel.fitData();
+  var outputDiv = document.getElementById("caseList");    
+
+
+function updateOutputDiv() {
+  Case.retrieve(
+    {orderby: [{CreatedDate: 'DESC'}], limit: 10},
+    function(error, records) {
+      if (error) {
+        alert(error.message);
+      } else {
+        var accountIcon = '<span class="slds-icon__container slds-icon-standard-case">';
+        accountIcon += '<svg aria-hidden="true" class="slds-icon">';
+        accountIcon += '<use xlink:href="{!URLFOR($Resource.SLDS0122, 'assets/icons/standard-sprite/svg/symbols.svg#case')}"></use>';
+        accountIcon += '</svg><span class="slds-assistive-text">Account</span></span>';  
+
+        var html = '<div class="slds-scrollable--x"><table class="slds-table slds-table--bordered">';  
+
+        
+        html += '<thead><tr><th scope="col">Date</th>';
+        html += '<th scope="col">Steps</th>';
+        html += '<th scope="col">Distance</th>';
+        html += '<th scope="col">Calories</th></tr></thead><tbody>';  
+
+        records.forEach(function(record) {
+            html += '<tr><td>' + record.get("Date__c") + '</td>';
+            html += '<td>' + record.get("Steps__c") + '</td>';
+            html += '<td>' + record.get("Distance__c") + '</td>';
+            html += '<td>' + record.get("Calories__c") + '</td></tr>';
+        });
+        html = html + '</tbody></table></div>';
+        outputDiv.innerHTML = html;
+      }
+    }
+  );
+}
+
+  updateOutputDiv();
+    
+j$ = jQuery.noConflict();
+    
+j$('#toggleBtn').click(function(){
+  j$('#backdrop').addClass('slds-backdrop--open');
+  j$('#modal').addClass('slds-fade-in-open');
+});
+
+//Modal Close
+function closeModal(){
+  j$('#modal').removeClass('slds-fade-in-open');
+  j$('#backdrop').removeClass('slds-backdrop--open');
+}    
+
+</script>
+<!-- / JAVASCRIPT -->
+
+
+</html>
+</apex:page>

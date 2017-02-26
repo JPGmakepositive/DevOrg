@@ -1,0 +1,32 @@
+<apex:page controller="GroupingExampleController">
+ <apex:form >
+  <apex:pageBlock >
+  Group By: <apex:selectList value="{!groupFieldName}" size="1">
+     <apex:selectOptions value="{!groupOptions}" />
+  </apex:selectList>&nbsp; <apex:commandButton value="Go" action="{!regroup}"/>
+  <table border="0">
+   <apex:repeat value="{!Groups}" var="group">
+      <tr>
+       <td colspan="3"><b>{!groupFieldName}:{!group.GroupedVal}</b> - {!group.count} records</td>
+     </tr>
+      <apex:repeat value="{!group.fts}" var="ft">
+      <tr>
+          <td width="30px"></td>
+        <td colspan="2"><b>Employee:</b>{!ft.Name}</td>
+       </tr>
+         <apex:repeat value="{!ft.time_logs__r}" var="cont">
+           <tr>
+               <td width="30px"></td>
+               <td width="30px"></td>
+              <td><b>Contact:</b>{!cont.employee__c}</td>
+               <td width="30px"></td>
+               <td width="30px"></td>
+              <td><b>Hours:</b>{!cont.hours__c}</td>
+           </tr> 
+         </apex:repeat>
+      </apex:repeat>
+   </apex:repeat>
+  </table>
+  </apex:pageBlock>
+ </apex:form>
+</apex:page>

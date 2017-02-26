@@ -1,0 +1,7 @@
+<apex:page docType="html-5.0" standardController="Opportunity">
+
+<apex:outputPanel rendered="{! If(Opportunity.Stagename=='Prospecting' ,1,If(Opportunity.Stagename=='Needs Analysis' ,2,If(Opportunity.Stagename=='Proposal/Price Quote',3,If(Opportunity.Stagename=='Negotiation/Review' ,4,false)))) }">
+</apex:outputPanel>
+
+    
+</apex:page>

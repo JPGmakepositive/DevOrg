@@ -1,0 +1,17 @@
+{
+    "projectName": "SourceControl Testing",
+    "username": "blaster660@hotmail.com",
+    "id": "b7aff720-fc73-11e6-852f-2314b540d6fa",
+    "namespace": "",
+    "orgType": "developer",
+    "loginUrl": "https://login.salesforce.com/",
+    "instanceUrl": "https://jpgdeveloper-dev-ed.my.salesforce.com",
+    "workspace": "/Users/juliangarcia/Documents/olivers",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "StaticResource"
+    ]
+}

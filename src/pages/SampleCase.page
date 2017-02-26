@@ -1,0 +1,272 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" docType="html-5.0">
+ 
+<html lang="en">
+  <head>
+      <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <meta name="description" content=""/>
+      <meta name="author" content=""/>
+      
+    <title>Economic Change Support Community</title>
+      
+
+    <!-- Bootstrap core CSS -->
+      <apex:stylesheet value="{!URLFOR($Resource.bootstrap1, '/bootstrap-3.3.6-dist/css/bootstrap.min.css')}" />
+      
+    <!-- Custom styles for this template the next two lines make the dropdown menu work and the slides move -->
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    </head>
+    
+<apex:remoteObjects >
+  <apex:remoteObjectModel name="Case" fields="Id,Subject,CreatedDate,status,Reason,Priority"/>
+  
+</apex:remoteObjects>    
+
+    <!--Navbar-->
+
+    
+     <body style="background:#E5E4E2;">
+         
+      <nav class="navbar-primary  navbar-top " >
+      <div class="container-fluid" style="background: #FFFFFF;">
+        <div class="navbar-header" >
+          
+            <a class="navbar-brand" href="#" >Economic Change Customer Support</a>  
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+<!-- Single button -->
+<div class="navbar-btn btn-group ">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="background: #2B3856; color: #FFFFFF">
+   <span class="glyphicon glyphicon-off" aria-hidden="true"  style="color: #FFFFFF;"> </span> {!$User.FirstName} {!$User.LastName}<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="https://eu5.salesforce.com/_ui/core/userprofile/UserProfilePage?tab=sfdc.ProfilePlatformFeed">My Profile</a></li>
+    <li><a href="https://eu5.salesforce.com/home/home.jsp">Classic View here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="https://eu5.salesforce.com/secur/logout.jsp">Log Out</a></li>
+  </ul>
+</div>
+          </ul>
+          <form class="navbar-form navbar-right">
+              <input type="text" class="form-control" placeholder="Search..."/>
+          </form>
+        </div>
+      </div>
+          <!--<ul class="nav nav-pills nav-justified" style ='background-color: #C0C0C0;'>
+                         	
+                          <li style='margin-right: 20px;'> <a href="#"> Support</a></li>
+                          <li> <a href="#"> CallBack</a></li>
+                          <li> <a href="#"> TimeLeft</a></li>
+</ul>-->
+          <div class="well col-md-3" style="background: #C7C6C4;"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Welcome Back <b>{!$User.FirstName} {!$User.LastName}</b></div>
+          <div class="well col-md-2" style="background: #C7C6C4;"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Request a meeting</div>
+          <div class="well col-md-2" style="background: #C7C6C4;"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Project Summary</div>
+          <div class="well col-md-5" style="background: #C7C6C4;"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> You have # in your support package, Click here to buy more</div>
+          
+          <div class="panel panel-default col-md-6 " style="margin-left: 1%; margin-right: 1%;margin-top: .1%;  padding: 0px">
+  <!-- Default panel contents -->
+       <div class="panel-heading clearfix" style="background: #2B3856;">
+           <h4 class="panel-title pull-left" style="padding-top: 7.5px; color: #FFFFFF; ">Latest Cases</h4>
+
+ <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#newCase">
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Case
+</button>
+              </div>
+  <!-- Table -->
+  <table id="caseList" class="table"  >
+    
+  </table>
+               <div class="panel-footer" >
+                   <h4>
+                       Cases Summary
+                   </h4>
+                   <b id="caseCount"> </b> 
+                   <br/>
+                   Click here to View Them all
+                   
+                       
+                       
+                 <!--  <div class="full-circle" style="background:#56A5EC;">-->
+                   </div>
+
+              
+</div>
+          <div class="panel panel-default col-md-5 " style="margin-top: .1%;  padding: 0px">
+  <!-- Default panel contents -->
+              <div class="panel-heading clearfix" style="background: #2B3856;">
+           <h4 class="panel-title pull-left" style="padding-top: 7.5px; color: #FFFFFF; ">Latest Chats</h4>
+  
+              </div>
+  <!-- Table -->
+  <table class="table" style="padding: 2px">
+    <apex:iframe id="iframe" src="apex/ChatterFeed?" height="450px" scrolling="true"/>
+  </table>
+               
+</div>
+          
+
+   <div class="panel panel-default col-md-6" style="margin-left: 20px;padding: 0px">
+  <!-- Default panel contents -->
+  <div class="panel-heading clearfix" style="background: #2B3856;">
+           <h4 class="panel-title pull-left" style="padding-top: 7.5px; color: #FFFFFF; ">Latest Actions</h4>
+       </div>
+  <!-- Table -->
+  <table class="table" >
+    ...
+  </table>
+   <div class="panel-footer">Actions Summary</div>
+</div>
+</nav> 
+</body>    
+         <!-- Modal -->
+<div class="modal fade" id="newCase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">New Case</h4>
+      </div>
+      <div class="modal-body">
+      <form class="form-horizontal">
+<fieldset>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Subject</label>  
+  <div class="col-md-7">
+      <input id="Subject" name="textinput" type="text" placeholder="Subject" class="form-control input-md" />
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Description">Description</label>
+  <div class="col-md-6">                     
+    <textarea class="form-control" id="Description" name="Description"></textarea>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Priority</label>
+  <div class="col-md-4">
+    <select id="Priority" name="selectbasic" class="form-control">
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+    </select>
+  </div>
+</div>
+
+    <div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Origin</label>
+  <div class="col-md-4">
+    <select id="Origin" name="selectbasic" class="form-control">
+      <option value="Phone">Phone</option>
+      <option value="Email">Email</option>
+      <option value="Web">Web</option>
+    </select>
+  </div>
+</div>
+</fieldset>
+</form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="createCase()">Save New Case</button>
+      </div>
+    </div>
+  </div>
+</div>
+         <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    
+    <script>
+        
+  var Case = new SObjectModel.Case();
+  var outputDiv = document.getElementById("caseList");
+  var outputDiv1 = document.getElementById("caseList");     
+  var count = document.getElementById("caseCount");
+           
+function updateOutputDiv() {
+  Case.retrieve(
+    {orderby: [{CreatedDate: 'DESC'}],limit:10},
+    function(error, records) {
+      if (error) {
+        alert(error.message);
+      } else {
+          
+        
+        
+        var html = '<div class=""><table class="table ">';  
+
+        html += '<th scope="col">Subject</th>';
+        html += '<th scope="col">Reason</th>';  
+        html += '<th scope="col">Priority</th>';
+        html += '<th scope="col">Status</th></tr></thead><tbody>';  
+
+            records.forEach(function(record) {
+           
+            html += '<td><a id=\"'+ record.get("Id") +'\" href=\"https://eu5.salesforce.com/'+ record.get("Id") +'\">'+ record.get("Subject") + '</a></td>';
+            html += '<td>' + record.get("Reason") + '</td>';
+			html += '<td>' + record.get("Priority") + '</td>';             
+            html += '<td>' + record.get("Status") + '</td></tr>';
+        });
+        html = html + '</tbody></table></div>';
+        outputDiv.innerHTML = html;
+          
+      }
+    }
+  );
+}
+updateOutputDiv();
+
+    function createCase() {
+  var Case = new SObjectModel.Case();
+  var Subject = document.getElementById("Subject").value;
+  var Description = document.getElementById("Description").value;
+  var Priority = document.getElementById("Priority").value;
+  var Origin = document.getElementById("Origin").value;
+  
+  Case.create({Subject: Subject,Description: Description, Priority: Priority, Origin: Origin}, function(error, records) {
+    if (error) {
+      alert(error.message);
+    } else {
+        updateOutputDiv();
+    }
+  });
+  return false;
+ }   
+
+    
+    
+  Case.retrieve(
+    {where:{Reason{eq:''}}},
+    function(error, records) {
+      if (error) {
+        alert(error.message);
+      } else {
+          
+        var c = records.length
+        
+        count.innerHTML = 'You have ' + c + ' New Cases';
+      }
+    }
+  );
+
+
+
+</script>
+</html>
+</apex:page>

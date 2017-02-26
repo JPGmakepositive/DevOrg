@@ -1,0 +1,34 @@
+<apex:page controller="Fitbit" showHeader="true" sidebar="false" id="page" docType="html-5.0">
+    <apex:form >
+        <apex:pageBlock title="Fitbit Data">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!today}" value="Get Data"/>
+                <apex:commandButton action="{!userProfile}" value="Get User Profile"/>
+               
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Select Date">
+                <apex:input type="date" value="{!fitbitDate}">
+                <apex:actionsupport event="onclick" rerender="display" />
+                </apex:input>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    <apex:outputpanel id="display">
+        <!--<apex:outputtext value="The date entered is {!today}"/>-->
+    </apex:outputpanel> 
+    </apex:form>
+    <!--<div id="msg">Access to Fitbit Server to get data .... </div>-->
+
+    <!--<script type="text/javascript">
+        function getFitbitData() {
+            {!$RemoteAction.FitbitController.getFitbitData}('', function(result, event){
+                if(event.status) {
+                    console.log('OK :' + result);
+                } else {
+                    console.log('NG :' + event);
+                }
+            });
+            return false;
+        }
+        setInterval('getFitbitData()',30000);
+    </script>-->
+</apex:page>

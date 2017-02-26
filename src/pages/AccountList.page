@@ -1,0 +1,16 @@
+<apex:page standardController="account" recordSetVar="accounts">
+   
+    <apex:pageBlock title="Accounts">
+        <apex:pageBlockSection title="selected accounts" columns="1">
+        
+            <apex:repeat value="{!accounts}" var="a">
+                <li><apex:outputLink value="/{!a.id}">
+                <apex:outputField value="{!a.name}" />
+</apex:outputLink>
+        </li>
+        </apex:repeat>
+            
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    
+</apex:page>

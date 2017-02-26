@@ -1,0 +1,42 @@
+<apex:page controller="displayRecords" id="RunPage">
+	<apex:form >
+		<apex:pageBlock title="Payment Schedule" >
+            <apex:pageBlockButtons >
+            <apex:commandButton value="<<" action="{!beginning}" disabled="{!DisablePrevious}"/>
+              <apex:commandButton value="<" action="{!previous}" disabled="{!DisablePrevious}"/>
+              <apex:commandButton value=">" action="{!next}" disabled="{!DisableNext}"/>
+              <apex:commandButton value=">>" action="{!last}" disabled="{!DisableNext}"/> 
+                 </apex:pageBlockButtons>
+        	<apex:pagemessages id="successmsg"></apex:pagemessages>
+       		<apex:pageMessage severity="info" strength="3" summary="By clicking the 'run' button you will create the paymentschedules immediatly,So only click it once. You can also edit the amount."/>
+      			<div align="center">
+             	<apex:actionStatus id="myStatus">
+                 	<apex:facet name="stop">
+           	 			<apex:commandButton value="Create Payment Schedules" action="{!CreateChildRecords}" onclick="if(!confirm('Are you sure?')){return false};" status="myStatus" rerender="successmsg"/>
+                 	</apex:facet>
+                 	<apex:facet name="start">
+                     	<apex:commandButton value="Processing...." disabled="true" status="myStatus"/>
+                 	</apex:facet>
+               </apex:actionStatus>
+				</div>
+			<apex:pageBlockTable value="{!allOpps}" var="opp"> 
+			<apex:column > 
+				<apex:facet name="header">Name</apex:facet> 
+                <apex:outputLink value="/{!opp.id}">{!opp.Name}</apex:outputLink>
+			</apex:column> 
+			<apex:column > 
+				<apex:facet name="header">CloseDate</apex:facet> 
+                <apex:outputText value="{0,date, dd'/'MM'/'yyyy}"> 
+                <apex:param value="{!opp.CloseDate}"/>
+            	</apex:outputText>
+			</apex:column> 
+			<apex:column style="width:50px"> 
+				<apex:facet name="header">Amount</apex:facet> 
+				<apex:inputField value="{!opp.amount}"/> 
+			</apex:column> 
+			</apex:pageBlockTable> 
+    	</apex:pageBlock>
+      
+
+	</apex:form>
+</apex:page>

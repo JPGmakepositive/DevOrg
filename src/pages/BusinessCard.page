@@ -1,0 +1,16 @@
+<apex:page docType="html-5.0" >
+    <h1>
+        Business Card
+    </h1><br/><br/>
+    <h2>
+        {!$User.FirstName}
+        {!$User.LastName}<br/>
+        {!$User.Title}<br/>
+        {!$User.Email}<br/>
+        {!$User.Phone}
+        {!$User.Title}
+    </h2><br/><br/>
+    <b>Send Email:</b>
+    <input type="text" id="sendEmail"/>
+   
+</apex:page>
