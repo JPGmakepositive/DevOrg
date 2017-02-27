@@ -13,7 +13,7 @@ public class AnimalLocator {
             Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
             animal = (Map<string, Object>) results.get('animal');
            }
-        	return (string)animal.get('name');
+        	return (string)animal.get('name' );
            
            
     }

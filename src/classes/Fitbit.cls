@@ -45,7 +45,7 @@ public class Fitbit {
         HttpResponse res = http.send(req);
         return res;
     }    
-    
+    //String comment SCM test
     public static date fitbitDate{get;set;}
    
     public static String getToday() {
